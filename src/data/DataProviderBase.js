@@ -1,23 +1,32 @@
-import axios from "axios";
+import axios from 'axios';
 
-axios.interceptors.response.use(response => {
-    return response;
-}, error => {
-    if (error.response.status === 401) {
-        //place your reentry code
-        console.log('401')
-    }
-    return error;
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:5001/',
+  responseType: 'json',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response.status === 401) {
+      localStorage.removeItem('token');
+      if (window.location.pathname !== '/login' && window.location.pathname !== '/registration') {
+        window.location.replace('/login');
+      }
+    }
+    return error;
+  },
+);
 
-export const httpService = () => {
-    return axios.create({
-        baseURL: "http://localhost:5001/",
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json',
-        },
-        responseType: "json",
-    })
-}
+axiosInstance.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
+
+export const httpService = axiosInstance;
