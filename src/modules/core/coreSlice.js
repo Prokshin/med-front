@@ -5,6 +5,7 @@ export const coreSlice = createSlice({
   initialState: {},
   reducers: {
     loginRequest: (state, action) => {},
+    logoutRequest: (state, action) => {},
   },
 });
 

@@ -14,6 +14,12 @@ function* login({ payload }) {
   }
 }
 
+function* logout() {
+  yield localStorage.removeItem('token');
+  yield window.location.replace('/login');
+}
+
 export default function* coreSaga() {
   yield takeEvery(actions.loginRequest, login);
+  yield takeEvery(actions.logoutRequest, logout);
 }
