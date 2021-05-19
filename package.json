@@ -39,7 +39,8 @@
         "max-len": ["warn", { "code":  110}],
         "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-filename-extension": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "react/prop-types": "off"
       }
     }]
   },
