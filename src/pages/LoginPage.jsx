@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { httpService } from '../data/DataProviderBase';
-import { actions } from '../core/coreSlice';
+import { actions } from '../modules/core/coreSlice';
 
 const LoginPage = () => {
   const dispatch = useDispatch();

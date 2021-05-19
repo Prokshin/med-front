@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import Menu from './common/components/Menu';
 import DashboardPage from './pages/DashboardPage';
 import { actions } from './modules/user/slices/userSlice';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,10 @@ function App() {
 
             <Route exact path="/">
               <DashboardPage />
+            </Route>
+
+            <Route path="/profile">
+              <ProfilePage />
             </Route>
 
           </div>

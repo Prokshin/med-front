@@ -36,7 +36,7 @@
       "rules": {
         "import/prefer-default-export": "off",
         "no-unused-vars": "off",
-        "max-len": ["error", { "code":  110}],
+        "max-len": ["warn", { "code":  110}],
         "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-filename-extension": "off",
         "no-param-reassign": "off"
