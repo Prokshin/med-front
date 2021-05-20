@@ -11,10 +11,11 @@ const HistoryContainer = () => {
   const loading = useSelector(getHistoryLoading);
 
   useEffect(() => {
-    dispatch(actions.fetchHistoryRequest(''));
+    dispatch(actions.fetchHistoryRequest({}));
   }, []);
   return (
     <div>
+      <h2 className="mt-4 mb-4">История исследований</h2>
       <Loader loading={loading}>
         <HistoryList history={history} />
       </Loader>

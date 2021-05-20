@@ -6,3 +6,11 @@ export const servicesList = [
     url: '/ecg',
   },
 ];
+
+export const statusDictionary = {
+  success: 'Успешно',
+};
+
+export const statusIconDictionary = {
+  success: 'check',
+};
