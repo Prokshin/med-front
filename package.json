@@ -12,6 +12,7 @@
     "bootstrap": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loader-spinner": "^4.0.0",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -31,18 +32,27 @@
       "react-app/jest",
       "airbnb"
     ],
-    "overrides": [{
-      "files": ["**/*.js?(x)"],
-      "rules": {
-        "import/prefer-default-export": "off",
-        "no-unused-vars": "off",
-        "max-len": ["warn", { "code":  110}],
-        "jsx-a11y/label-has-associated-control": "off",
-        "react/jsx-filename-extension": "off",
-        "no-param-reassign": "off",
-        "react/prop-types": "off"
+    "overrides": [
+      {
+        "files": [
+          "**/*.js?(x)"
+        ],
+        "rules": {
+          "import/prefer-default-export": "off",
+          "no-unused-vars": "off",
+          "max-len": [
+            "warn",
+            {
+              "code": 110
+            }
+          ],
+          "jsx-a11y/label-has-associated-control": "off",
+          "react/jsx-filename-extension": "off",
+          "no-param-reassign": "off",
+          "react/prop-types": "off"
+        }
       }
-    }]
+    ]
   },
   "browserslist": {
     "production": [
@@ -55,5 +65,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.1"
   }
 }

@@ -8,6 +8,7 @@ import { actions } from './modules/user/slices/userSlice';
 import ProfilePage from './pages/ProfilePage';
 import ServicesList from './modules/services/components/ServicesList';
 import ServicesPage from './pages/ServicesPage';
+import HistoryPage from './pages/HistoryPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,10 @@ function App() {
 
             <Route path="/services">
               <ServicesPage />
+            </Route>
+
+            <Route path="/history">
+              <HistoryPage />
             </Route>
 
           </div>

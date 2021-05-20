@@ -1,23 +1,9 @@
 import React from 'react';
 import ServicesItem from './ServicesItem';
-
-const MOCK_SERVICES = [
-  {
-    id: 'ecg',
-    name: 'Исследование ЭКГ',
-    description: 'описние в общем',
-    url: '/ecg',
-  },
-  {
-    id: 'ecg',
-    name: 'Исследование ЭКГ',
-    description: 'описние в общем',
-    url: '/ecg',
-  },
-];
+import { servicesList } from '../../../enum/services';
 
 const ServicesList = () => {
-  const services = MOCK_SERVICES;
+  const services = servicesList;
   return (
     <div className="row">
       {
