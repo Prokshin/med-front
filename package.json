@@ -50,7 +50,8 @@
           "jsx-a11y/label-has-associated-control": "off",
           "react/jsx-filename-extension": "off",
           "no-param-reassign": "off",
-          "react/prop-types": "off"
+          "react/prop-types": "off",
+          "import/named": "off"
         }
       }
     ]

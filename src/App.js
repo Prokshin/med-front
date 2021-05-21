@@ -9,6 +9,7 @@ import ProfilePage from './pages/ProfilePage';
 import ServicesList from './modules/services/components/ServicesList';
 import ServicesPage from './pages/ServicesPage';
 import HistoryPage from './pages/HistoryPage';
+import EcgArrhythmiaPage from './pages/EcgArrhythmiaPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ function App() {
 
             <Route path="/services">
               <ServicesPage />
+            </Route>
+
+            <Route path="/ecg">
+              <EcgArrhythmiaPage />
             </Route>
 
             <Route path="/history">

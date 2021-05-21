@@ -11,13 +11,14 @@ const configureAppStore = () => {
 
   const middlewares = [sagaMiddleware];
   const middleware = [
-    ...getDefaultMiddleware({ thunk: false }),
+    ...getDefaultMiddleware({
+      thunk: false,
+      serializableCheck: {
+        ignoredActions: ['ecg/sendEcgRequest'],
+      },
+    }),
     ...middlewares,
   ];
-
-  console.log(allModules.reducers);
-
-  // const reducers = allModules.reducers.reduce((acc, cur) => ,{})
 
   const store = configureStore({
     reducer: allModules.reducers,
