@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:5001/',
@@ -16,7 +17,15 @@ axiosInstance.interceptors.response.use(
       if (window.location.pathname !== '/login' && window.location.pathname !== '/registration') {
         window.location.replace('/login');
       }
+      toast.error(
+        'ошибка авторизации, войдите в приложение снова',
+      );
+    } else {
+      toast.error(
+        error.response?.data?.info?.error || 'ошибка при получении данных, повоторите попытку позднее',
+      );
     }
+
     return error;
   },
 );

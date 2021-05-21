@@ -12,7 +12,7 @@ const HistoryList = ({ history }) => (
         </tr>
       </thead>
       <tbody>
-        {history.map((el) => (
+        {history && history.map((el) => (
           <tr>
             <td>{el.title}</td>
             <td>{el.text}</td>

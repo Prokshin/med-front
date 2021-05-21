@@ -7,7 +7,7 @@ const ServicesList = () => {
   return (
     <div className="row">
       {
-        services.map((service) => (
+        services?.map((service) => (
           <div className="col-md-6 mb-4">
             <ServicesItem
               id={service.id}
