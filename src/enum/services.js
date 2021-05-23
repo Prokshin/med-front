@@ -9,8 +9,10 @@ export const servicesList = [
 
 export const statusDictionary = {
   success: 'Успешно',
+  error: 'Ошибка',
 };
 
 export const statusIconDictionary = {
   success: 'check',
+  error: 'close',
 };
