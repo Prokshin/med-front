@@ -5,7 +5,7 @@ import { statusIconDictionary } from '../../../enum/services';
 import { getService } from '../utils';
 
 const HistoryList = ({ history }) => {
-  const getDate = useCallback((date) => format(new Date(date), 'dd/mm/yyyy hh:mm'), []);
+  const getDate = useCallback((date) => format(new Date(date), 'dd-MM-yyyy hh:mm'), []);
   const getServiceLink = useCallback((type) => {
     const service = getService(type);
     return (

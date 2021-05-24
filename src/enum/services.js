@@ -5,6 +5,12 @@ export const servicesList = [
     description: 'описние в общем',
     url: '/ecg',
   },
+  {
+    id: 'eeg',
+    name: 'Исследование ЭЭГ',
+    description: 'описние в общем',
+    url: '/eeg',
+  },
 ];
 
 export const statusDictionary = {
