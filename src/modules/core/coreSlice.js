@@ -12,6 +12,7 @@ export const coreSlice = createSlice({
   reducers: {
     loginRequest: (state, action) => {},
     logoutRequest: (state, action) => {},
+    regRequest: (state, action) => {},
     showModal: (state, action) => {
       state.showModal = true;
       state.modalContent.title = action.payload.title || '';

@@ -18,7 +18,17 @@ function* logout() {
   yield window.location.replace('/login');
 }
 
+function* reg({ payload }) {
+  try {
+    yield call(dataProvider.reg, payload);
+    yield window.location.replace('/login');
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export default function* coreSaga() {
   yield takeEvery(actions.loginRequest, login);
   yield takeEvery(actions.logoutRequest, logout);
+  yield takeEvery(actions.regRequest, reg);
 }

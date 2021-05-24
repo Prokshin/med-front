@@ -10,6 +10,7 @@ import ServicesList from './modules/services/components/ServicesList';
 import ServicesPage from './pages/ServicesPage';
 import HistoryPage from './pages/HistoryPage';
 import EcgArrhythmiaPage from './pages/EcgArrhythmiaPage';
+import RegPage from './pages/RegPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,9 @@ function App() {
       <Switch>
         <Route path="/login">
           <LoginPage />
+        </Route>
+        <Route path="/reg">
+          <RegPage />
         </Route>
         <Route>
           <Menu />
