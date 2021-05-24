@@ -11,6 +11,7 @@ import ServicesPage from './pages/ServicesPage';
 import HistoryPage from './pages/HistoryPage';
 import EcgArrhythmiaPage from './pages/EcgArrhythmiaPage';
 import RegPage from './pages/RegPage';
+import EegPage from './pages/EegPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,10 @@ function App() {
 
             <Route path="/ecg">
               <EcgArrhythmiaPage />
+            </Route>
+
+            <Route path="/eeg">
+              <EegPage />
             </Route>
 
             <Route path="/history">

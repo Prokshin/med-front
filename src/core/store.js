@@ -14,7 +14,7 @@ const configureAppStore = () => {
     ...getDefaultMiddleware({
       thunk: false,
       serializableCheck: {
-        ignoredActions: ['ecg/sendEcgRequest'],
+        ignoredActions: ['ecg/sendEcgRequest', 'eeg/sendEegRequest'],
       },
     }),
     ...middlewares,
