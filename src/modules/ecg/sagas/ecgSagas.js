@@ -1,5 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { actions } from '../slices/ecgSlice';
+import { actions as coreActions } from '../../core/coreSlice';
 import * as dataContext from '../dataProvider/ecgArrhythmiaDataContext';
 
 function* sendEcg({ payload }) {
@@ -7,12 +8,14 @@ function* sendEcg({ payload }) {
     const formData = new FormData();
     formData.append('file', payload.file);
     formData.append('title', payload.title);
-    payload.history.push('/ecg/result');
     const res = yield call(dataContext.sendEcgRequest, formData);
-    console.log(res);
+    yield put(coreActions.showModal({
+      title: res.title,
+      content: res.text,
+    }));
     yield put(actions.sendEcgSuccess(res));
   } catch (e) {
-    console.log(e);
+    yield put(actions.sendEcgError(e));
   }
 }
 

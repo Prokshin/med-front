@@ -10,6 +10,7 @@ import {
 import App from './App';
 import configureAppStore from './core/store';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from './common/components/Modal';
 
 const store = configureAppStore();
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       hideProgressBar
       pauseOnHover
     />
+    <Modal />
   </Provider>,
   document.getElementById('root'),
 );

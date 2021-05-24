@@ -5,7 +5,6 @@ import { getCurrentUser } from '../dataProvider/userDataContext';
 function* fetchUser() {
   try {
     const user = yield call(getCurrentUser);
-    console.log(user);
     if (user) {
       yield put(actions.fetchUserSuccess(user));
     }

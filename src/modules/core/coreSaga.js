@@ -10,7 +10,6 @@ function* login({ payload }) {
     window.location.replace('/');
   } catch (e) {
     //
-    console.log(e);
   }
 }
 
