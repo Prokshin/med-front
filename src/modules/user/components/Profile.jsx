@@ -23,7 +23,6 @@ const Profile = () => {
                   <p className="col-md-8 fs-4">
                     {user.email}
                   </p>
-                  <button className="btn me-3 btn-primary mh-100" type="button">Настройки</button>
                   <button type="button" className="btn btn-danger" onClick={logout}>Выйти</button>
                 </div>
                 )

@@ -14,6 +14,8 @@ const EcgArrhythmiaPage = () => {
   return (
     <div>
       <h2>Исселдование Экг</h2>
+      <p>С помощью этого сервиса вы можете получить предположение о наличии и типе аритмии у пациента.</p>
+
       <Switch>
         <Route exact path={path}>
           <EcgArrhythmiaForm />

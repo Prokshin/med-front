@@ -14,12 +14,12 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response.status === 401) {
       localStorage.removeItem('token');
-      if (window.location.pathname !== '/login' && window.location.pathname !== '/registration') {
+      if (window.location.pathname !== '/login' && window.location.pathname !== '/reg') {
+        toast.error(
+          'ошибка авторизации, войдите в приложение снова',
+        );
         window.location.replace('/login');
       }
-      toast.error(
-        'ошибка авторизации, войдите в приложение снова',
-      );
     } else {
       toast.error(
         error.response?.data?.info?.error || 'ошибка при получении данных, повоторите попытку позднее',

@@ -37,7 +37,7 @@ const EcgArrhythmiaForm = () => {
           <label htmlFor="title" className="form-label">Название исследования</label>
           <input className="form-control mb-3" type="text" id="title" onChange={onChangTitle} />
           <label htmlFor="formFile" className="form-label">Загрузите файл в формате .csv</label>
-          <input className="form-control" type="file" id="formFile" onChange={onChangeFile} ref={ref} />
+          <input className="form-control" type="file" id="formFile" lang="ru" onChange={onChangeFile} ref={ref} />
         </div>
         <button type="submit" className="btn btn-primary">Отправить</button>
       </Loader>

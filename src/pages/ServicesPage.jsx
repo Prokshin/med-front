@@ -3,7 +3,7 @@ import ServicesList from '../modules/services/components/ServicesList';
 
 const ServicesPage = () => (
   <div>
-    <h1 className="mt-3 mb-5">Сервисы</h1>
+    <h2 className="mt-3 mb-5">Сервисы</h2>
     <ServicesList />
   </div>
 );
