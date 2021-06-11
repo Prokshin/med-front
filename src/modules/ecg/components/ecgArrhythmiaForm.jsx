@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import {
   Field, Form, Formik,
 } from 'formik';
+import { toast } from 'react-toastify';
 import { actions } from '../slices/ecgSlice';
 import Loader from '../../../common/components/Loader';
 import { getEcgLoading } from '../selectors/ecgSelectors';
@@ -19,11 +20,14 @@ const EcgArrhythmiaForm = () => {
   const onChangeFile = useCallback((e) => {
     if (e.target?.files[0]?.type === 'application/vnd.ms-excel') {
       setFile((e.target.files[0]));
+    } else {
+      toast.error('Загружен файл в неподдерживаемом формате');
+      ref.current.value = '';
     }
   }, []);
 
   const onSubmit = ({ title }) => {
-    dispatch(actions.sendEcgRequest({ file, title, history }));
+    if (file) dispatch(actions.sendEcgRequest({ file, title, history }));
   };
 
   return (
