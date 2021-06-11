@@ -1,83 +1,103 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
+import {
+  useFormik,
+  Field, Form, Formik,
+} from 'formik';
+import { Link } from 'react-router-dom';
 import { actions } from '../coreSlice';
+import { validateEmail, validateName, validatePassword } from '../../../common/validators';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const formik = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-    onSubmit: (values) => {
-      dispatch(actions.regRequest(values));
-    },
-  });
+  const onSubmit = (values) => {
+    dispatch(actions.regRequest(values));
+  };
 
   return (
     <main className="d-flex align-items-center vh-100">
       <div className="row w-100">
-        <form className="col-sm-4 offset-sm-4" onSubmit={formik.handleSubmit}>
-          <h1 className="h3 mb-3 fw-normal">Регистрация в системе</h1>
-          <div className="form-floating">
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              placeholder="Имя"
-              onChange={formik.handleChange}
-              value={formik.values.firstName}
-              className="form-control"
-            />
-            <label htmlFor="firstName">Имя</label>
-          </div>
+        <Formik
+          initialValues={{
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+          }}
+          onSubmit={onSubmit}
+        >
+          {({ errors, touched, isValidating }) => (
+            <Form className="col-sm-4 offset-sm-4">
+              <h1 className="h3 mb-3 fw-normal">Регистрация в системе</h1>
+              {
+                errors.firstName && touched.firstName
+                && <div className="text-danger" role="alert">{errors.firstName}</div>
+              }
+              <div className="form-floating">
+                <Field
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  placeholder="Имя"
+                  className="form-control"
+                  validate={validateName('Поле "Имя"')}
+                />
+                <label htmlFor="firstName">Имя</label>
+              </div>
+              {
+                errors.lastName && touched.lastName
+                && <div className="text-danger" role="alert">{errors.lastName}</div>
+              }
+              <div className="form-floating">
+                <Field
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  placeholder="Фамилия"
+                  className="form-control"
+                  validate={validateName('Поле "Фамилия"')}
+                />
+                <label htmlFor="lastName">Фамилия</label>
+              </div>
+              {
+                errors.email && touched.email
+                && <div className="text-danger" role="alert">{errors.email}</div>
+              }
+              <div className="form-floating">
+                <Field
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  validate={validateEmail('Email введён некорректно')}
+                />
+                <label htmlFor="email">Email</label>
+              </div>
+              {
+                errors.password && touched.password
+                && <div className="text-danger" role="alert">{errors.password}</div>
+              }
+              <div className="form-floating">
+                <Field
+                  type="password"
+                  className="form-control"
+                  id="floatingPassword"
+                  name="password"
+                  placeholder="Password"
+                  validate={validatePassword}
+                />
+                <label htmlFor="floatingPassword">Пароль</label>
+              </div>
 
-          <div className="form-floating">
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              placeholder="Фамилия"
-              onChange={formik.handleChange}
-              value={formik.values.lastName}
-              className="form-control"
-            />
-            <label htmlFor="lastName">Фамилия</label>
-          </div>
-
-          <div className="form-floating">
-            <input
-              className="form-control"
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-            <label htmlFor="email">Email</label>
-          </div>
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control"
-              id="floatingPassword"
-              name="password"
-              placeholder="Password"
-              onChange={formik.handleChange}
-              value={formik.values.password}
-            />
-            <label htmlFor="floatingPassword">Пароль</label>
-          </div>
-
-          <button className="w-100 btn btn-lg btn-primary mt-3" type="submit">Зарегестрироваться</button>
-        </form>
+              <button className="w-100 btn btn-lg btn-primary mt-3" type="submit">Зарегестрироваться</button>
+            </Form>
+          )}
+        </Formik>
       </div>
       <div className="position-absolute bottom-0 start-50 translate-middle mb-4">
-        <button className="btn btn btn-outline-success mt-5" type="button">Войти</button>
+        <Link to="login" className="btn btn btn-outline-success mt-5" type="button">Войти</Link>
       </div>
     </main>
   );
