@@ -1,7 +1,7 @@
 export const validateLength = (length) => (value) => {
   let error;
   if (length < value.length) {
-    error = `Максимаольное количество символов - ${length}`;
+    error = `Максимальное количество символов - ${length}`;
   }
   return error;
 };
@@ -36,6 +36,16 @@ export const validateName = (name) => (value) => {
     error = 'Введён некорректный символ';
   } else {
     error = validateLength(40)(value);
+  }
+  return error;
+};
+
+export const validateTitle = (value) => {
+  let error;
+  if (!value) {
+    error = 'Название исследования не может быть пустым';
+  } else {
+    error = validateLength(100)(value);
   }
   return error;
 };
